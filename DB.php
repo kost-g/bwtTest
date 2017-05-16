@@ -1,27 +1,38 @@
 <?php
 
+require('DBConnectionInterface.php');
+
 class DB implements DBConnectionInterface
 {
-    //instance of DB class
-   private static $dbInstance;
+    //array of instances of DB class
+    private static $dbInstance=[];
 
-   //instance of connection
-   public $pdoInstance;
+    //current instance of DB class
+    private static $currDbInstance;
+
+    //instance of connection
+    protected $pdoInstance;
 
     //name of database to connect
-    public $dsn;
+    protected $dsn;
 
     //name of user to connect
-    public $username;
+    protected $username;
 
     //password of user to connect
-    public $password;
+    protected $password;
+
+    //array of current PDO attributes
+    protected $pdoAttribute = array();
 
     private function __construct($dsn, $username, $password){
+        $this->dbInstance = null;
+        $this->currDbInstance = null;
         $this->dsn = $dsn;
         $this->username = $username;
         $this->password = $password;
         $this->pdoInstance = $this->getPdoInstance();
+        $this->pdoAttribute = null;
     }
 
     /**
@@ -35,11 +46,19 @@ class DB implements DBConnectionInterface
      *
      * @return $this DB
      */
-
     public static function connect($dsn, $username = '', $password = ''){
-        if (is_null(self::$dbInstance))
-            self::$dbInstance = new self($dsn, $username, $password);
-        return self::$dbInstance;
+        if (is_null(self::$currDbInstance)){
+            self::$currDbInstance = self::$dbInstance[] = new self($dsn, $username, $password);
+        } else {
+            foreach (self::$dbInstance as $instance){
+                if (($instance->$dsn === $dsn) && ($instance->$username === $username) && ($instance->$password === $password)){
+                    self::$currDbInstance = $instance;
+                }else{
+                    self::$currDbInstance = self::$dbInstance[] = new self($dsn, $username, $password);
+                }
+            }
+        }
+        return self::$currDbInstance;
     }
 
     /**
@@ -50,6 +69,9 @@ class DB implements DBConnectionInterface
     public function reconnect(){
         $this->pdoInstance = null;
         $this->pdoInstance = $this->getPdoInstance();
+        foreach ($this->pdoAttribute as $key => $val){
+            $this->pdoInstance->setAttribute($key, $val);
+        }
     }
 
     /**
@@ -58,7 +80,12 @@ class DB implements DBConnectionInterface
      * @return PDO the PDO instance, null if the connection is not established yet
      */
     public function getPdoInstance(){
-        return new PDO($this->dsn, $this->username, $this->password);
+        $newPdoInstabnce = new PDO($this->dsn, $this->username, $this->password);
+        if (is_null($newPdoInstabnce)){
+            return null;
+        }else{
+            return $newPdoInstabnce;
+        }
     }
 
     /**
@@ -80,11 +107,11 @@ class DB implements DBConnectionInterface
      * @return void
      */
     public function close(){
-        self::$dbInstance  = null;
         $this->dsn = null;
         $this->username = null;
         $this->password = null;
         $this->pdoInstance = null;
+        $this->pdoAttribute= null;
     }
 
     /**
@@ -99,6 +126,17 @@ class DB implements DBConnectionInterface
      * @see http://php.net/manual/en/pdo.setattribute.php
      */
     public function setAttribute($attribute, $value){
+        if (is_null($this->pdoAttribute)) {
+            $this->pdoAttribute [$attribute] = $value;
+        } else {
+            foreach ($this->pdoAttribute as $key){
+                if ($key === $attribute) {
+                    $this->pdoAttribute[$key] = $value;
+                } else {
+                    $this->pdoAttribute[$attribute] = $value;
+                }
+            }
+        }
         if (!is_null($this->pdoInstance)){
             $this->pdoInstance->setAttribute($attribute, $value);
             return true;
@@ -116,6 +154,16 @@ class DB implements DBConnectionInterface
      * @see http://php.net/manual/en/pdo.setattribute.php
      */
     public function getAttribute($attribute){
-            return $this->pdoInstance->getAttribute($attribute);
+        return $this->pdoInstance->getAttribute($attribute);
     }
+
+    private function __clone() {
+    }
+
+    private function __wakeup() {
+    }
+
+    private function __sleep() {
+    }
+
 }
