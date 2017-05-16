@@ -5,29 +5,27 @@ require('DBConnectionInterface.php');
 class DB implements DBConnectionInterface
 {
     //array of instances of DB class
-    private static $dbInstance=[];
+    private static $dbInstances=[];
 
     //current instance of DB class
     private static $currDbInstance;
 
     //instance of connection
-    protected $pdoInstance;
+    public $pdoInstance;
 
     //name of database to connect
-    protected $dsn;
+    public $dsn;
 
     //name of user to connect
-    protected $username;
+    public $username;
 
     //password of user to connect
-    protected $password;
+    public $password;
 
     //array of current PDO attributes
-    protected $pdoAttribute = array();
+    public $pdoAttribute = array();
 
     private function __construct($dsn, $username, $password){
-        $this->dbInstance = null;
-        $this->currDbInstance = null;
         $this->dsn = $dsn;
         $this->username = $username;
         $this->password = $password;
@@ -48,13 +46,15 @@ class DB implements DBConnectionInterface
      */
     public static function connect($dsn, $username = '', $password = ''){
         if (is_null(self::$currDbInstance)){
-            self::$currDbInstance = self::$dbInstance[] = new self($dsn, $username, $password);
+            self::$currDbInstance = new self($dsn, $username, $password);
+            self::$dbInstances[] = self::$currDbInstance;
         } else {
-            foreach (self::$dbInstance as $instance){
-                if (($instance->$dsn === $dsn) && ($instance->$username === $username) && ($instance->$password === $password)){
+            foreach (self::$dbInstances as $instance){
+                if (($instance->$dsn === $dsn) && ($instance->$username === $username)){
                     self::$currDbInstance = $instance;
                 }else{
-                    self::$currDbInstance = self::$dbInstance[] = new self($dsn, $username, $password);
+                    self::$currDbInstance = new self($dsn, $username, $password);
+                    self::$dbInstances[] = self::$currDbInstance;
                 }
             }
         }

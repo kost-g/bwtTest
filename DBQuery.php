@@ -4,7 +4,7 @@ require('DBQueryInterface.php');
 
 class DBQuery implements DBQueryInterface
 {
-    protected $connectInstance;
+    public $connectInstance;
 
     /**
      * Create new instance DBQuery.
@@ -12,7 +12,7 @@ class DBQuery implements DBQueryInterface
      * @param DBConnectionInterface $DBConnection
      */
     public function __construct(DBConnectionInterface $DBConnection){
-        $this->connectInstance = $DBConnection;
+        $this->connectInstance = $DBConnection->pdoInstance;
     }
 
     /**
@@ -44,7 +44,7 @@ class DBQuery implements DBQueryInterface
      * @return mixed if successful, returns a PDOStatement on error false
      */
     public function query($query, $params = null){
-        return $this->connectInstance->pdoInstance;
+        return $this->connectInstance;
     }
 
     /**

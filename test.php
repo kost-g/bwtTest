@@ -6,13 +6,22 @@ require __DIR__ . '\DBQuery.php';
 
 $db = DB::connect('mysql:dbname = bwt_test; host=localhost', 'root', '');
 
-$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$db2 = DB::connect('mysql:dbname = testnews; host=localhost', 'root', '');
 
-$db->setAttribute( PDO::ATTR_CASE, PDO::CASE_LOWER);
+$db1 = DB::connect('mysql:dbname = luna_db; host=localhost', 'root', '');
 
-//var_dump($db->pdoAttribute);
+$db1->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$db1->setAttribute( PDO::ATTR_CASE, PDO::CASE_LOWER);
+//
+//var_dump($db2);
+//echo '<br>';
+//
+//var_dump($db1);
+//echo '<br>';
 
 $query = new DBQuery($db);
+var_dump($query -> connectInstance);
 
 //var_dump($connectInstance);
 //echo '<br>';
