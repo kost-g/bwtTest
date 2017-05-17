@@ -4,59 +4,58 @@ require __DIR__  . '\DB.php';
 
 require __DIR__ . '\DBQuery.php';
 
-$db = DB::connect('mysql:dbname = bwt_test; host=localhost', 'root', '');
+$db = DB::connect('mysql:host=localhost;dbname=bwt_test', "root", "");
 
-$db2 = DB::connect('mysql:dbname = testnews; host=localhost', 'root', '');
+$db2 = new PDO('mysql:host=localhost;dbname=bwt_test', "root", "");
 
-$db1 = DB::connect('mysql:dbname = luna_db; host=localhost', 'root', '');
+$db1 = DB::connect('mysql:host=localhost;dbname=luna_db', "root", "");
 
-$db1->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$db1->setAttribute( PDO::ATTR_CASE, PDO::CASE_LOWER);
-//
-//var_dump($db2);
-//echo '<br>';
-//
-//var_dump($db1);
-//echo '<br>';
+$db->setAttribute( PDO::ATTR_CASE, PDO::CASE_LOWER);
 
 $query = new DBQuery($db);
-var_dump($query -> connectInstance);
 
-//var_dump($connectInstance);
-//echo '<br>';
+print_r($query->queryAll('SELECT * FROM users'));
+echo '<br>';
 
-//$attributes = array(
-//    "AUTOCOMMIT", "ERRMODE", "CASE", "CLIENT_VERSION", "CONNECTION_STATUS",
-//    "ORACLE_NULLS", "PERSISTENT", "SERVER_INFO", "SERVER_VERSION",
-//);
+print_r($query->queryRow('SELECT * FROM users limit 1'));
+echo '<br>';
+
+print_r($query->queryColumn('SELECT email FROM users'));
+echo '<br>';
+
+echo $query->queryScalar('SELECT email FROM users');
+echo '<br>';
+
+$db->reconnect();
+
+$data = [
+    'email' => 'zotov_mv+' . rand(1,99999) . '@groupbwt.com',
+    'password' => password_hash('qwerty' . time() ,PASSWORD_DEFAULT)
+];
+
+$rowCount = $query->execute("INSERT INTO `users` (`email`, `password`) VALUES (:email, :password)", $data);
+
+echo "\ncount inserts row -> " . $rowCount . "\n";
+
+echo '<br>';
+$lastId = $db->getLastInsertID();
+echo '<br>';
+
+//print_r($query->queryRow('SELECT * FROM users where id = :id', ['id' => $lastId]));
 //
-//foreach ($attributes as $val) {
-//    echo "PDO::ATTR_$val: ";
-//    echo $db->getAttribute(constant("PDO::ATTR_$val")) . ";" . "<br>";
-//}
+//$updateData = [
+//    'password' => password_hash('qwerty' . time() ,PASSWORD_DEFAULT),
+//    'id' => $lastId
+//];
+
+//$rowCountUpdate = $query->execute("Update `users` SET password = :password where id = :id", $updateData);
 //
-//var_dump($db instanceof DBConnectionInterface);
-//echo '<br>';
+//echo "\ncount update row -> " . $rowCountUpdate . "\n";
 //
-//var_dump($attrConnect);
-//echo '<br>';
+//$rowCountDelete = $query->execute("DELETE FROM `users` where id = :id", ['id' => $lastId]);
 //
-//var_dump($db);
-//echo '<br>';
+//echo "\ncount delete row -> " . $rowCountDelete . "\n";
 //
-//$db->reconnect();
-//echo "PDO::ATTR_ERRMODE: " . $db->getAttribute(constant("PDO::ATTR_ERRMODE"));
-//echo '<br>';
-//
-//var_dump($db);
-//echo '<br>';
-//
-//$arr = [1,2,3];
-//foreach ($arr as $instance){
-//    if ($instance >4 ){
-//        return $instance;
-//    }else{
-//        return $arr[] =4;
-//    }
-//}
+//echo "\nlast query execution time -> ".$query->getLastQueryTime() . "\n";

@@ -32,7 +32,7 @@ class DBQuery implements DBQueryInterface
      * @return void
      */
     public function setDBConnection(DBConnectionInterface $DBConnection){
-        $this->connectInstance = $DBConnection;
+
     }
 
     /**
@@ -44,7 +44,7 @@ class DBQuery implements DBQueryInterface
      * @return mixed if successful, returns a PDOStatement on error false
      */
     public function query($query, $params = null){
-        return $this->connectInstance;
+        return $this->connectInstance->query($query);
     }
 
     /**
@@ -56,7 +56,7 @@ class DBQuery implements DBQueryInterface
      * @return array
      */
     public function queryAll($query, array $params = null){
-
+        return $this->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -68,7 +68,7 @@ class DBQuery implements DBQueryInterface
      * @return array
      */
     public function queryRow($query, array $params = null){
-
+        return $this->query($query)->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -80,7 +80,7 @@ class DBQuery implements DBQueryInterface
      * @return array
      */
     public function queryColumn($query, array $params = null){
-
+        return $this->query($query)->fetchAll(PDO::FETCH_NUM);
     }
 
     /**
@@ -92,7 +92,7 @@ class DBQuery implements DBQueryInterface
      * @return mixed  column value
      */
     public function queryScalar($query, array $params = null){
-
+        return $this->query($query)->fetchColumn();
     }
 
     /**
@@ -106,7 +106,15 @@ class DBQuery implements DBQueryInterface
      * @return integer number of rows affected by the execution.
      */
     public function execute($query, array $params = null){
+        $email = $params['email'];
+        $password = $params['password'];
 
+        $exec = $this->connectInstance->prepare($query);
+
+        $exec->bindValue(':email', "%{$email}%");
+        $exec->bindValue(':password', "%{$password}%");
+
+        return $exec->execute();
     }
 
     /**
