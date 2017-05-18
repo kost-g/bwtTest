@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fc91120b-c4f6-4ccd-bf6f-29fc6150692e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.php" afterPath="$PROJECT_DIR$/test.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -112,8 +111,8 @@
       <file leaf-file-name="test.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-40">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="487">
+              <caret line="50" column="91" lean-forward="true" selection-start-line="50" selection-start-column="91" selection-end-line="50" selection-end-column="91" />
               <folding>
                 <marker date="1495110697605" expanded="true" signature="465:484" ph="SELECT * FRO... users" />
                 <marker date="1495110697605" expanded="true" signature="516:543" ph="SELECT * FRO... users" />
@@ -351,7 +350,7 @@
       <workItem from="1494849787869" duration="32274000" />
       <workItem from="1494931677864" duration="41284000" />
       <workItem from="1495040344698" duration="34129000" />
-      <workItem from="1495107417462" duration="2846000" />
+      <workItem from="1495107417462" duration="2927000" />
     </task>
     <task id="LOCAL-00001" summary="Second">
       <created>1494936516874</created>
@@ -388,11 +387,18 @@
       <option name="project" value="LOCAL" />
       <updated>1495099528957</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="18/05/17 12:25&#10;">
+      <created>1495110772305</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1495110772305</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="192263000" />
+    <option name="totallyTimeSpent" value="192344000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="874" extended-state="6" />
@@ -913,8 +919,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-40">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="487">
+          <caret line="50" column="91" lean-forward="true" selection-start-line="50" selection-start-column="91" selection-end-line="50" selection-end-column="91" />
           <folding>
             <marker date="1495110697605" expanded="true" signature="465:484" ph="SELECT * FRO... users" />
             <marker date="1495110697605" expanded="true" signature="516:543" ph="SELECT * FRO... users" />
