@@ -24,8 +24,6 @@ print_r($query->queryColumn('SELECT email FROM users'));
 
 echo $query->queryScalar('SELECT email FROM users');
 
-$db->reconnect();
-
 $data = [
     'email' => 'zotov_mv+' . rand(1,99999) . '@groupbwt.com',
     'password' => password_hash('qwerty' . time() ,PASSWORD_DEFAULT)
@@ -37,6 +35,7 @@ echo "\ncount inserts row -> " . $rowCount . "\n";
 
 $lastId = $db->getLastInsertID();
 print_r($lastId);
+echo '</br>';
 
 print_r($query->queryRow('SELECT * FROM users where id = :id', ['id' => $lastId]));
 
@@ -54,3 +53,5 @@ $rowCountDelete = $query->execute("DELETE FROM `users` where id = :id", ['id' =>
 echo "\ncount delete row -> " . $rowCountDelete . "\n";
 
 echo "\nlast query execution time -> ".$query->getLastQueryTime() . "\n";
+
+$db->reconnect();

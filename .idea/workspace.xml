@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fc91120b-c4f6-4ccd-bf6f-29fc6150692e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.php" afterPath="$PROJECT_DIR$/test.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -72,8 +73,8 @@
       <file leaf-file-name="DB.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DB.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1060">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="283">
+              <caret line="66" column="19" lean-forward="true" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -82,8 +83,8 @@
       <file leaf-file-name="DBQuery.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DBQuery.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2652">
-              <caret line="156" column="62" lean-forward="false" selection-start-line="156" selection-start-column="62" selection-end-line="156" selection-end-column="62" />
+            <state relative-caret-position="555">
+              <caret line="156" column="43" lean-forward="true" selection-start-line="156" selection-start-column="43" selection-end-line="156" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -92,8 +93,8 @@
       <file leaf-file-name="example.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+            <state relative-caret-position="368">
+              <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
               <folding>
                 <marker date="1495077866108" expanded="true" signature="265:284" ph="SELECT * FRO... users" />
                 <marker date="1495077866108" expanded="true" signature="565:592" ph="SELECT * FRO... users" />
@@ -111,17 +112,17 @@
       <file leaf-file-name="test.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="37" column="33" lean-forward="true" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
+            <state relative-caret-position="-40">
+              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
-                <marker date="1495096080346" expanded="true" signature="465:484" ph="SELECT * FRO... users" />
-                <marker date="1495096080346" expanded="true" signature="516:543" ph="SELECT * FRO... users" />
-                <marker date="1495096080346" expanded="true" signature="578:601" ph="SELECT email... users" />
-                <marker date="1495096080346" expanded="true" signature="633:656" ph="SELECT email... users" />
-                <marker date="1495096080346" expanded="true" signature="854:922" ph="INSERT INTO `users`... " />
-                <marker date="1495096080346" expanded="true" signature="1065:1099" ph="SELECT * FRO... users" />
-                <marker date="1495096080346" expanded="true" signature="1269:1323" ph="Update `user... " />
-                <marker date="1495096080346" expanded="true" signature="1433:1467" ph="DELETE FROM " />
+                <marker date="1495110697605" expanded="true" signature="465:484" ph="SELECT * FRO... users" />
+                <marker date="1495110697605" expanded="true" signature="516:543" ph="SELECT * FRO... users" />
+                <marker date="1495110697605" expanded="true" signature="578:601" ph="SELECT email... users" />
+                <marker date="1495110697605" expanded="true" signature="633:656" ph="SELECT email... users" />
+                <marker date="1495110697605" expanded="true" signature="835:903" ph="INSERT INTO `users`... " />
+                <marker date="1495110697605" expanded="true" signature="1060:1094" ph="SELECT * FRO... users" />
+                <marker date="1495110697605" expanded="true" signature="1264:1318" ph="Update `user... " />
+                <marker date="1495110697605" expanded="true" signature="1428:1462" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -130,8 +131,8 @@
       <file leaf-file-name="PDO.php" pinned="false" current-in-tab="false">
         <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/PDO.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="274" column="66" lean-forward="false" selection-start-line="274" selection-start-column="66" selection-end-line="274" selection-end-column="66" />
+            <state relative-caret-position="-6787">
+              <caret line="516" column="72" lean-forward="true" selection-start-line="516" selection-start-column="72" selection-end-line="516" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -143,7 +144,6 @@
     <findStrings>
       <find>getAttribute</find>
       <find>getAttribute``</find>
-      <find>reconnect</find>
       <find>_instance</find>
       <find>construct</find>
       <find>__construct</find>
@@ -171,6 +171,7 @@
       <find>getLastInsertID</find>
       <find>execute</find>
       <find>time</find>
+      <find>reconnect</find>
     </findStrings>
     <replaceStrings>
       <replace>dbInstance</replace>
@@ -185,11 +186,11 @@
       <list>
         <option value="$PROJECT_DIR$/DBConnectionInterface.php" />
         <option value="$PROJECT_DIR$/DBQueryInterface.php" />
-        <option value="$PROJECT_DIR$/DB.php" />
         <option value="$PROJECT_DIR$/example.php" />
-        <option value="$PROJECT_DIR$/test.php" />
         <option value="$PROJECT_DIR$/DBQuery.php" />
         <option value="$PROJECT_DIR$/test1.php" />
+        <option value="$PROJECT_DIR$/DB.php" />
+        <option value="$PROJECT_DIR$/test.php" />
       </list>
     </option>
   </component>
@@ -349,7 +350,8 @@
       <workItem from="1494768616728" duration="26164000" />
       <workItem from="1494849787869" duration="32274000" />
       <workItem from="1494931677864" duration="41284000" />
-      <workItem from="1495040344698" duration="33772000" />
+      <workItem from="1495040344698" duration="34129000" />
+      <workItem from="1495107417462" duration="2846000" />
     </task>
     <task id="LOCAL-00001" summary="Second">
       <created>1494936516874</created>
@@ -379,11 +381,18 @@
       <option name="project" value="LOCAL" />
       <updated>1495099492228</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="18/05/17 12:25&#10;">
+      <created>1495099528957</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1495099528957</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189060000" />
+    <option name="totallyTimeSpent" value="192263000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="874" extended-state="6" />
@@ -459,14 +468,14 @@
         <state relative-caret-position="170">
           <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="51" />
           <folding>
-            <marker date="1495096080346" expanded="true" signature="465:484" ph="SELECT * FRO... users" />
-            <marker date="1495096080346" expanded="true" signature="516:543" ph="SELECT * FRO... users" />
-            <marker date="1495096080346" expanded="true" signature="578:601" ph="SELECT email... users" />
-            <marker date="1495096080346" expanded="true" signature="633:656" ph="SELECT email... users" />
-            <marker date="1495096080346" expanded="true" signature="854:922" ph="INSERT INTO `users`... " />
-            <marker date="1495096080346" expanded="true" signature="1065:1099" ph="SELECT * FRO... users" />
-            <marker date="1495096080346" expanded="true" signature="1269:1323" ph="Update `user... " />
-            <marker date="1495096080346" expanded="true" signature="1433:1467" ph="DELETE FROM " />
+            <marker date="1495110697605" expanded="true" signature="465:484" ph="SELECT * FRO... users" />
+            <marker date="1495110697605" expanded="true" signature="516:543" ph="SELECT * FRO... users" />
+            <marker date="1495110697605" expanded="true" signature="578:601" ph="SELECT email... users" />
+            <marker date="1495110697605" expanded="true" signature="633:656" ph="SELECT email... users" />
+            <marker date="1495110697605" expanded="true" signature="835:903" ph="INSERT INTO `users`... " />
+            <marker date="1495110697605" expanded="true" signature="1060:1094" ph="SELECT * FRO... users" />
+            <marker date="1495110697605" expanded="true" signature="1264:1318" ph="Update `user... " />
+            <marker date="1495110697605" expanded="true" signature="1428:1462" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -533,14 +542,14 @@
         <state relative-caret-position="170">
           <caret line="10" column="14" lean-forward="false" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
           <folding>
-            <marker date="1495096080346" expanded="true" signature="465:484" ph="SELECT * FRO... users" />
-            <marker date="1495096080346" expanded="true" signature="516:543" ph="SELECT * FRO... users" />
-            <marker date="1495096080346" expanded="true" signature="578:601" ph="SELECT email... users" />
-            <marker date="1495096080346" expanded="true" signature="633:656" ph="SELECT email... users" />
-            <marker date="1495096080346" expanded="true" signature="854:922" ph="INSERT INTO `users`... " />
-            <marker date="1495096080346" expanded="true" signature="1065:1099" ph="SELECT * FRO... users" />
-            <marker date="1495096080346" expanded="true" signature="1269:1323" ph="Update `user... " />
-            <marker date="1495096080346" expanded="true" signature="1433:1467" ph="DELETE FROM " />
+            <marker date="1495110697605" expanded="true" signature="465:484" ph="SELECT * FRO... users" />
+            <marker date="1495110697605" expanded="true" signature="516:543" ph="SELECT * FRO... users" />
+            <marker date="1495110697605" expanded="true" signature="578:601" ph="SELECT email... users" />
+            <marker date="1495110697605" expanded="true" signature="633:656" ph="SELECT email... users" />
+            <marker date="1495110697605" expanded="true" signature="835:903" ph="INSERT INTO `users`... " />
+            <marker date="1495110697605" expanded="true" signature="1060:1094" ph="SELECT * FRO... users" />
+            <marker date="1495110697605" expanded="true" signature="1264:1318" ph="Update `user... " />
+            <marker date="1495110697605" expanded="true" signature="1428:1462" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -607,14 +616,14 @@
         <state relative-caret-position="323">
           <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <marker date="1495096080346" expanded="true" signature="465:484" ph="SELECT * FRO... users" />
-            <marker date="1495096080346" expanded="true" signature="516:543" ph="SELECT * FRO... users" />
-            <marker date="1495096080346" expanded="true" signature="578:601" ph="SELECT email... users" />
-            <marker date="1495096080346" expanded="true" signature="633:656" ph="SELECT email... users" />
-            <marker date="1495096080346" expanded="true" signature="854:922" ph="INSERT INTO `users`... " />
-            <marker date="1495096080346" expanded="true" signature="1065:1099" ph="SELECT * FRO... users" />
-            <marker date="1495096080346" expanded="true" signature="1269:1323" ph="Update `user... " />
-            <marker date="1495096080346" expanded="true" signature="1433:1467" ph="DELETE FROM " />
+            <marker date="1495110697605" expanded="true" signature="465:484" ph="SELECT * FRO... users" />
+            <marker date="1495110697605" expanded="true" signature="516:543" ph="SELECT * FRO... users" />
+            <marker date="1495110697605" expanded="true" signature="578:601" ph="SELECT email... users" />
+            <marker date="1495110697605" expanded="true" signature="633:656" ph="SELECT email... users" />
+            <marker date="1495110697605" expanded="true" signature="835:903" ph="INSERT INTO `users`... " />
+            <marker date="1495110697605" expanded="true" signature="1060:1094" ph="SELECT * FRO... users" />
+            <marker date="1495110697605" expanded="true" signature="1264:1318" ph="Update `user... " />
+            <marker date="1495110697605" expanded="true" signature="1428:1462" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -681,14 +690,14 @@
         <state relative-caret-position="255">
           <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <marker date="1495096080346" expanded="true" signature="465:484" ph="SELECT * FRO... users" />
-            <marker date="1495096080346" expanded="true" signature="516:543" ph="SELECT * FRO... users" />
-            <marker date="1495096080346" expanded="true" signature="578:601" ph="SELECT email... users" />
-            <marker date="1495096080346" expanded="true" signature="633:656" ph="SELECT email... users" />
-            <marker date="1495096080346" expanded="true" signature="854:922" ph="INSERT INTO `users`... " />
-            <marker date="1495096080346" expanded="true" signature="1065:1099" ph="SELECT * FRO... users" />
-            <marker date="1495096080346" expanded="true" signature="1269:1323" ph="Update `user... " />
-            <marker date="1495096080346" expanded="true" signature="1433:1467" ph="DELETE FROM " />
+            <marker date="1495110697605" expanded="true" signature="465:484" ph="SELECT * FRO... users" />
+            <marker date="1495110697605" expanded="true" signature="516:543" ph="SELECT * FRO... users" />
+            <marker date="1495110697605" expanded="true" signature="578:601" ph="SELECT email... users" />
+            <marker date="1495110697605" expanded="true" signature="633:656" ph="SELECT email... users" />
+            <marker date="1495110697605" expanded="true" signature="835:903" ph="INSERT INTO `users`... " />
+            <marker date="1495110697605" expanded="true" signature="1060:1094" ph="SELECT * FRO... users" />
+            <marker date="1495110697605" expanded="true" signature="1264:1318" ph="Update `user... " />
+            <marker date="1495110697605" expanded="true" signature="1428:1462" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -755,14 +764,14 @@
         <state relative-caret-position="136">
           <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
           <folding>
-            <marker date="1495096080346" expanded="true" signature="465:484" ph="SELECT * FRO... users" />
-            <marker date="1495096080346" expanded="true" signature="516:543" ph="SELECT * FRO... users" />
-            <marker date="1495096080346" expanded="true" signature="578:601" ph="SELECT email... users" />
-            <marker date="1495096080346" expanded="true" signature="633:656" ph="SELECT email... users" />
-            <marker date="1495096080346" expanded="true" signature="854:922" ph="INSERT INTO `users`... " />
-            <marker date="1495096080346" expanded="true" signature="1065:1099" ph="SELECT * FRO... users" />
-            <marker date="1495096080346" expanded="true" signature="1269:1323" ph="Update `user... " />
-            <marker date="1495096080346" expanded="true" signature="1433:1467" ph="DELETE FROM " />
+            <marker date="1495110697605" expanded="true" signature="465:484" ph="SELECT * FRO... users" />
+            <marker date="1495110697605" expanded="true" signature="516:543" ph="SELECT * FRO... users" />
+            <marker date="1495110697605" expanded="true" signature="578:601" ph="SELECT email... users" />
+            <marker date="1495110697605" expanded="true" signature="633:656" ph="SELECT email... users" />
+            <marker date="1495110697605" expanded="true" signature="835:903" ph="INSERT INTO `users`... " />
+            <marker date="1495110697605" expanded="true" signature="1060:1094" ph="SELECT * FRO... users" />
+            <marker date="1495110697605" expanded="true" signature="1264:1318" ph="Update `user... " />
+            <marker date="1495110697605" expanded="true" signature="1428:1462" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -785,7 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1020">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -839,20 +847,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="55" lean-forward="true" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
-          <folding>
-            <marker date="1495097889988" expanded="true" signature="89:187" ph="CREATE TABLE... testIncrement" />
-            <marker date="1495097889988" expanded="true" signature="214:261" ph="INSERT INTO testIncrement... " />
-            <marker date="1495097889988" expanded="true" signature="422:446" ph="DROP TABLE t... " />
-            <marker date="1495097889988" expanded="true" signature="668:736" ph="INSERT INTO `users`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/PDO.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="274" column="66" lean-forward="false" selection-start-line="274" selection-start-column="66" selection-end-line="274" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -860,7 +854,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -869,27 +862,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-          <folding>
-            <marker date="1495077866108" expanded="true" signature="265:284" ph="SELECT * FRO... users" />
-            <marker date="1495077866108" expanded="true" signature="565:592" ph="SELECT * FRO... users" />
-            <marker date="1495077866108" expanded="true" signature="745:768" ph="SELECT email... users" />
-            <marker date="1495077866108" expanded="true" signature="917:940" ph="SELECT email... users" />
-            <marker date="1495077866108" expanded="true" signature="1159:1227" ph="INSERT INTO `users`... " />
-            <marker date="1495077866108" expanded="true" signature="1352:1386" ph="SELECT * FRO... users" />
-            <marker date="1495077866108" expanded="true" signature="1671:1725" ph="Update `user... " />
-            <marker date="1495077866108" expanded="true" signature="1835:1869" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DBQuery.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2652">
-          <caret line="156" column="62" lean-forward="false" selection-start-line="156" selection-start-column="62" selection-end-line="156" selection-end-column="62" />
+        <state relative-caret-position="555">
+          <caret line="156" column="43" lean-forward="true" selection-start-line="156" selection-start-column="43" selection-end-line="156" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -904,25 +880,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DB.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1060">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="283">
+          <caret line="66" column="19" lean-forward="true" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/PDO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6787">
+          <caret line="516" column="72" lean-forward="true" selection-start-line="516" selection-start-column="72" selection-end-line="516" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding>
+            <marker date="1495077866108" expanded="true" signature="265:284" ph="SELECT * FRO... users" />
+            <marker date="1495077866108" expanded="true" signature="565:592" ph="SELECT * FRO... users" />
+            <marker date="1495077866108" expanded="true" signature="745:768" ph="SELECT email... users" />
+            <marker date="1495077866108" expanded="true" signature="917:940" ph="SELECT email... users" />
+            <marker date="1495077866108" expanded="true" signature="1159:1227" ph="INSERT INTO `users`... " />
+            <marker date="1495077866108" expanded="true" signature="1352:1386" ph="SELECT * FRO... users" />
+            <marker date="1495077866108" expanded="true" signature="1671:1725" ph="Update `user... " />
+            <marker date="1495077866108" expanded="true" signature="1835:1869" ph="DELETE FROM " />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="37" column="33" lean-forward="true" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
+        <state relative-caret-position="-40">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <marker date="1495096080346" expanded="true" signature="465:484" ph="SELECT * FRO... users" />
-            <marker date="1495096080346" expanded="true" signature="516:543" ph="SELECT * FRO... users" />
-            <marker date="1495096080346" expanded="true" signature="578:601" ph="SELECT email... users" />
-            <marker date="1495096080346" expanded="true" signature="633:656" ph="SELECT email... users" />
-            <marker date="1495096080346" expanded="true" signature="854:922" ph="INSERT INTO `users`... " />
-            <marker date="1495096080346" expanded="true" signature="1065:1099" ph="SELECT * FRO... users" />
-            <marker date="1495096080346" expanded="true" signature="1269:1323" ph="Update `user... " />
-            <marker date="1495096080346" expanded="true" signature="1433:1467" ph="DELETE FROM " />
+            <marker date="1495110697605" expanded="true" signature="465:484" ph="SELECT * FRO... users" />
+            <marker date="1495110697605" expanded="true" signature="516:543" ph="SELECT * FRO... users" />
+            <marker date="1495110697605" expanded="true" signature="578:601" ph="SELECT email... users" />
+            <marker date="1495110697605" expanded="true" signature="633:656" ph="SELECT email... users" />
+            <marker date="1495110697605" expanded="true" signature="835:903" ph="INSERT INTO `users`... " />
+            <marker date="1495110697605" expanded="true" signature="1060:1094" ph="SELECT * FRO... users" />
+            <marker date="1495110697605" expanded="true" signature="1264:1318" ph="Update `user... " />
+            <marker date="1495110697605" expanded="true" signature="1428:1462" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
