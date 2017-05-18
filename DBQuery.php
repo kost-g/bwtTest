@@ -4,15 +4,19 @@ require('DBQueryInterface.php');
 
 class DBQuery implements DBQueryInterface
 {
-    public $connectInstance;
+//    public $connectInstance;
+    public $DBpdoInstance;
 
+    public $startTime;
+    public $endTime;
     /**
      * Create new instance DBQuery.
      *
      * @param DBConnectionInterface $DBConnection
      */
     public function __construct(DBConnectionInterface $DBConnection){
-        $this->connectInstance = $DBConnection->pdoInstance;
+        $this->setDBConnection($DBConnection);
+        return $this->getDBConnection();
     }
 
     /**
@@ -21,7 +25,7 @@ class DBQuery implements DBQueryInterface
      * @return DBConnectionInterface
      */
     public function getDBConnection(){
-        return clone $this->connectInstance;
+        return $this->DBpdoInstance;
     }
 
     /**
@@ -32,7 +36,8 @@ class DBQuery implements DBQueryInterface
      * @return void
      */
     public function setDBConnection(DBConnectionInterface $DBConnection){
-
+//        $this->connectInstance = $DBConnection;
+        $this->DBpdoInstance = $DBConnection->pdoInstance;
     }
 
     /**
@@ -44,7 +49,7 @@ class DBQuery implements DBQueryInterface
      * @return mixed if successful, returns a PDOStatement on error false
      */
     public function query($query, $params = null){
-        return $this->connectInstance->query($query);
+        return $this->DBpdoInstance->query($query);
     }
 
     /**
@@ -56,6 +61,16 @@ class DBQuery implements DBQueryInterface
      * @return array
      */
     public function queryAll($query, array $params = null){
+        $this->startTime = microtime(true);
+        if (!is_null($params)){
+            $exec = $this->DBpdoInstance->prepare($query);
+            foreach($params as $key => $val) {
+                $exec->bindValue(':' . $key, $val);
+            }
+            $this->endTime = microtime(true);
+            return $exec->execute()->fetchAll(PDO::FETCH_ASSOC);
+        }
+        $this->endTime = microtime(true);
         return $this->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -68,7 +83,18 @@ class DBQuery implements DBQueryInterface
      * @return array
      */
     public function queryRow($query, array $params = null){
-        return $this->query($query)->fetch(PDO::FETCH_ASSOC);
+        $this->startTime = microtime(true);
+        if (!is_null($params)){
+            $exec = $this->DBpdoInstance->prepare($query);
+            foreach($params as $key => $val) {
+                $exec->execute([':' . $key => $val]);
+            }
+            $this->endTime = microtime(true);
+            return $exec->fetchAll(PDO::FETCH_ASSOC);
+        }else{
+            $this->endTime = microtime(true);
+            return $this->query($query)->fetch(PDO::FETCH_ASSOC);
+        }
     }
 
     /**
@@ -80,7 +106,10 @@ class DBQuery implements DBQueryInterface
      * @return array
      */
     public function queryColumn($query, array $params = null){
-        return $this->query($query)->fetchAll(PDO::FETCH_NUM);
+        $this->startTime = microtime(true);
+        $quer = $this->query($query);
+        $this->endTime = microtime(true);
+        return $quer->fetchAll(PDO::FETCH_COLUMN);
     }
 
     /**
@@ -92,7 +121,10 @@ class DBQuery implements DBQueryInterface
      * @return mixed  column value
      */
     public function queryScalar($query, array $params = null){
-        return $this->query($query)->fetchColumn();
+        $this->startTime = microtime(true);
+        $quer = $this->query($query);
+        $this->endTime = microtime(true);
+        return $quer->fetchColumn();
     }
 
     /**
@@ -106,15 +138,14 @@ class DBQuery implements DBQueryInterface
      * @return integer number of rows affected by the execution.
      */
     public function execute($query, array $params = null){
-        $email = $params['email'];
-        $password = $params['password'];
-
-        $exec = $this->connectInstance->prepare($query);
-
-        $exec->bindValue(':email', "%{$email}%");
-        $exec->bindValue(':password', "%{$password}%");
-
-        return $exec->execute();
+        $this->startTime = microtime(true);
+        $exec = $this->DBpdoInstance->prepare($query);
+        foreach($params as $key => $val) {
+            $exec->bindValue(':' . $key, $val);
+        }
+        $res = $exec->execute();
+        $this->endTime = microtime(true);
+        return $res;
     }
 
     /**
@@ -123,6 +154,6 @@ class DBQuery implements DBQueryInterface
      * @return float query time in seconds
      */
     public function getLastQueryTime(){
-
+        return (round(($this->endTime) - ($this->startTime), 5));
     }
 }

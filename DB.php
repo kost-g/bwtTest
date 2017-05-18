@@ -80,11 +80,11 @@ class DB implements DBConnectionInterface
      * @return PDO the PDO instance, null if the connection is not established yet
      */
     public function getPdoInstance(){
-        $newPdoInstabnce = new PDO($this->dsn, $this->username, $this->password);
-        if (is_null($newPdoInstabnce)){
+        $newPdoInstance = new PDO($this->dsn, $this->username, $this->password);
+        if (is_null($newPdoInstance)){
             return null;
         }else{
-            return $newPdoInstabnce;
+            return $newPdoInstance;
         }
     }
 
@@ -96,7 +96,7 @@ class DB implements DBConnectionInterface
      * @return string the row ID of the last row inserted, or the last value retrieved from the sequence object
      * @see http://www.php.net/manual/en/function.PDO-lastInsertId.php
      */
-    public function getLastInsertID($sequenceName = ''){
+    public function getLastInsertID($sequenceName = null){
         return $this->pdoInstance->lastInsertId($sequenceName);
     }
 
