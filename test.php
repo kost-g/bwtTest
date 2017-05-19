@@ -4,10 +4,10 @@ require __DIR__  . '\DB.php';
 
 require __DIR__ . '\DBQuery.php';
 
+$db1 = DB::connect('mysql:host=localhost;dbname=luna_db', "root", "");
+
 $db = DB::connect('mysql:host=localhost;dbname=bwt_test', "root", "");
 
-//$db2 = new PDO('mysql:host=localhost;dbname=bwt_test', "root", "");
-//
 //$db1 = DB::connect('mysql:host=localhost;dbname=luna_db', "root", "");
 
 $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
