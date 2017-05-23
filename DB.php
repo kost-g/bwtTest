@@ -7,9 +7,6 @@ class DB implements DBConnectionInterface
     //array of instances of DB class
     private static $dbInstances=[];
 
-    //current instance of DB class
-    private static $currDbInstance;
-
     //instance of connection
     public $pdoInstance;
 
@@ -45,24 +42,7 @@ class DB implements DBConnectionInterface
      * @return $this DB
      */
     public static function connect($dsn, $username = '', $password = ''){
-        //if first query of connect
-        if (is_null(self::$currDbInstance)){
-            self::$currDbInstance = new self($dsn, $username, $password);
-            self::$dbInstances[] = self::$currDbInstance;
-        } else {
-        //if instances of class DB exist
-            foreach (self::$dbInstances as $instance){
-                if (($instance->$dsn === $dsn) && ($instance->$username === $username)){
-                    self::$currDbInstance = $instance;
-                    //if instance with necessary parameters exist
-                }else{
-                    //if instance with necessary parameters doesn't exist
-                    self::$currDbInstance = new self($dsn, $username, $password);
-                    self::$dbInstances[] = self::$currDbInstance;
-                }
-            }
-        }
-        return self::$currDbInstance;
+        return isset(self::$dbInstances[($dsn . $username)]) ? self::$dbInstances[($dsn . $username)] : self::$dbInstances[($dsn . $username)] = new self($dsn, $username, $password);
     }
 
     /**
