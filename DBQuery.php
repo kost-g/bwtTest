@@ -49,23 +49,10 @@ class DBQuery implements DBQueryInterface
      * @return mixed if successful, returns a PDOStatement on error false
      */
     public function query($query, $params = null){
-        $paramNum =count($params);
-        $quer = null;
-        switch ($paramNum){
-            case null:
-                $quer = $this->DBpdoInstance->query($query);
-                break;
-            case 1:
-                $quer = $this->DBpdoInstance->query($query, $params[0]);
-                break;
-            case 2:
-                $quer = $this->DBpdoInstance->query($query, $params[0], $params[1]);
-                break;
-            case 3:
-                $quer = $this->DBpdoInstance->query($query, $params[0], $params[1], $params[2]);
-                break;
-        }
-        return $quer;
+//        return $this->DBpdoInstance->query($query, $params);
+        isset($params)? $exec = $this->DBpdoInstance->query($query, $params) : $exec = $this->DBpdoInstance->query($query);
+        $this->endTime = microtime(true);
+        return $exec;
     }
 
     /**
@@ -78,7 +65,7 @@ class DBQuery implements DBQueryInterface
      */
     public function queryAll($query, array $params = null){
         $this->startTime = microtime(true);
-        isset($params)? $exec = $this->DBpdoInstance->prepare($query)->execute($params)->fetchAll(PDO::FETCH_ASSOC) : $exec = $this->query($query)->fetchAll(PDO::FETCH_ASSOC);
+        isset($params)? $exec = $this->DBpdoInstance->prepare($query)->execute($params)->fetchAll(PDO::FETCH_ASSOC) : $exec = $this->query($query, PDO::FETCH_ASSOC)->fetchAll();
         $this->endTime = microtime(true);
         return $exec;
     }
@@ -102,7 +89,7 @@ class DBQuery implements DBQueryInterface
             return $exec->fetchAll(PDO::FETCH_ASSOC);
         }else{
             $this->endTime = microtime(true);
-            return $this->query($query)->fetch(PDO::FETCH_ASSOC);
+            return $this->query($query, PDO::FETCH_ASSOC)->fetch();
         }
     }
 
