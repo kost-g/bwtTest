@@ -17,9 +17,8 @@ $query = new DBQuery($db);
 
 print_r($query->queryAll('SELECT * FROM users'));
 
-print_r($query->queryRow('SELECT * FROM users limit 1'));
 
-//print_r($query->queryColumn('SELECT email FROM users'));
+print_r($query->queryColumn('SELECT email FROM users'));
 
 echo $query->queryScalar('SELECT email FROM users');
 
@@ -32,8 +31,6 @@ $rowCount = $query->execute("INSERT INTO `users` (`email`, `password`) VALUES (:
 echo "\ncount inserts row -> " . $rowCount . "\n";
 
 $lastId = $db->getLastInsertID();
-
-print_r($lastId);
 
 print_r($query->queryRow('SELECT * FROM users where id = :id', ['id' => $lastId]));
 

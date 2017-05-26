@@ -49,8 +49,8 @@ class DBQuery implements DBQueryInterface
      * @return mixed if successful, returns a PDOStatement on error false
      */
     public function query($query, $params = null){
-//        return $this->DBpdoInstance->query($query, $params);
-        isset($params)? $exec = $this->DBpdoInstance->query($query, $params) : $exec = $this->DBpdoInstance->query($query);
+        $this->startTime = microtime(true);
+        isset($params)? $exec = $this->DBpdoInstance->prepare($query)->execute($params): $exec = $this->DBpdoInstance->query($query);
         $this->endTime = microtime(true);
         return $exec;
     }
@@ -64,10 +64,7 @@ class DBQuery implements DBQueryInterface
      * @return array
      */
     public function queryAll($query, array $params = null){
-        $this->startTime = microtime(true);
-        isset($params)? $exec = $this->DBpdoInstance->prepare($query)->execute($params)->fetchAll(PDO::FETCH_ASSOC) : $exec = $this->query($query, PDO::FETCH_ASSOC)->fetchAll();
-        $this->endTime = microtime(true);
-        return $exec;
+        return $this->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -79,8 +76,8 @@ class DBQuery implements DBQueryInterface
      * @return array
      */
     public function queryRow($query, array $params = null){
-        $this->startTime = microtime(true);
         if (!is_null($params)){
+            $this->startTime = microtime(true);
             $exec = $this->DBpdoInstance->prepare($query);
             foreach($params as $key => $val) {
                 $exec->execute([':' . $key => $val]);
@@ -88,9 +85,10 @@ class DBQuery implements DBQueryInterface
             $this->endTime = microtime(true);
             return $exec->fetchAll(PDO::FETCH_ASSOC);
         }else{
-            $this->endTime = microtime(true);
-            return $this->query($query, PDO::FETCH_ASSOC)->fetch();
+            $exec = $this->query($query)->fetch(PDO::FETCH_ASSOC);
+            return $exec;
         }
+//        return $this->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -102,10 +100,7 @@ class DBQuery implements DBQueryInterface
      * @return array
      */
     public function queryColumn($query, array $params = null){
-        $this->startTime = microtime(true);
-        isset($params)? $exec = $this->DBpdoInstance->prepare($query)->execute($params)->fetchAll(PDO::FETCH_COLUMN) : $exec = $this->query($query)->fetchAll(PDO::FETCH_COLUMN);
-        $this->endTime = microtime(true);
-        return $exec;
+        return $this->query($query, $params)->fetchAll(PDO::FETCH_COLUMN);
     }
 
     /**
@@ -117,10 +112,7 @@ class DBQuery implements DBQueryInterface
      * @return mixed  column value
      */
     public function queryScalar($query, array $params = null){
-        $this->startTime = microtime(true);
-        isset($params)? $exec = $this->DBpdoInstance->prepare($query)->execute($params)->fetchColumn() : $exec = $this->query($query)->fetchColumn();
-        $this->endTime = microtime(true);
-        return $exec;
+        return $this->query($query, $params)->fetchColumn();
     }
 
     /**
@@ -134,10 +126,7 @@ class DBQuery implements DBQueryInterface
      * @return integer number of rows affected by the execution.
      */
     public function execute($query, array $params = null){
-        $this->startTime = microtime(true);
-        isset($params)? $exec = $this->DBpdoInstance->prepare($query)->execute($params) : $exec = $this->query($query)->execute();
-        $this->endTime = microtime(true);
-        return $exec;
+        return $this->query($query, $params);
     }
 
     /**
