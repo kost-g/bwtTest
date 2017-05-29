@@ -50,7 +50,12 @@ class DBQuery implements DBQueryInterface
      */
     public function query($query, $params = null){
         $this->startTime = microtime(true);
-        isset($params)? $exec = $this->DBpdoInstance->prepare($query)->execute($params): $exec = $this->DBpdoInstance->query($query);
+        if (isset($params)){
+            $exec = $this->DBpdoInstance->prepare($query);
+            $exec->execute($params);
+        }else{
+            $exec = $this->DBpdoInstance->query($query);
+        }
         $this->endTime = microtime(true);
         return $exec;
     }
@@ -76,19 +81,7 @@ class DBQuery implements DBQueryInterface
      * @return array
      */
     public function queryRow($query, array $params = null){
-        if (!is_null($params)){
-            $this->startTime = microtime(true);
-            $exec = $this->DBpdoInstance->prepare($query);
-            foreach($params as $key => $val) {
-                $exec->execute([':' . $key => $val]);
-            }
-            $this->endTime = microtime(true);
-            return $exec->fetchAll(PDO::FETCH_ASSOC);
-        }else{
-            $exec = $this->query($query)->fetch(PDO::FETCH_ASSOC);
-            return $exec;
-        }
-//        return $this->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
+        return $this->query($query, $params)->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -126,7 +119,7 @@ class DBQuery implements DBQueryInterface
      * @return integer number of rows affected by the execution.
      */
     public function execute($query, array $params = null){
-        return $this->query($query, $params);
+        return $this->query($query, $params)->rowCount();
     }
 
     /**

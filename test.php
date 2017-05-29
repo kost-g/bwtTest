@@ -17,6 +17,7 @@ $query = new DBQuery($db);
 
 print_r($query->queryAll('SELECT * FROM users'));
 
+print_r($query->queryRow('SELECT * FROM users limit 1'));
 
 print_r($query->queryColumn('SELECT email FROM users'));
 
